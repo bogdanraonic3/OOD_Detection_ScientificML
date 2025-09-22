@@ -1,6 +1,6 @@
 {
-    "config_regression": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/REG_PL_WAVE_UNET_1000s_19M_3res5n3_100ep_1_regression",
-    "config_diffusion": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/DIFF_SKIP_2_ALLEPOCHS_PL_WAVE_SMALL_1k_diffusion_gencfd",
+    "config_regression": "/path_to_regression_folder/",
+    "config_diffusion": "/path_to_diffusion_folder/",
     "which_data": "wave_ood",
     "tag_data": "3",
     "device": "cuda",

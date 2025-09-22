@@ -35,7 +35,7 @@
     "ema_param": 0.999,
     "wandb_run_name": "_pXandY",
     "skip": true,
-    "wandb_project_name": "ood_project",
-    "config_arch": "/cluster/home/braonic/ood_generalization/configs/architectures/config_unet_small.json",
-    "workdir": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/DIFF_SKIP_2_ALLEPOCHS_PL_WAVE_SMALL_1k_diffusion_gencfd"
+    "wandb_project_name": "project_name",
+    "config_arch": "configs/architectures/config_unet_small.json",
+    "workdir": "/path_to_workdir/"
 }
