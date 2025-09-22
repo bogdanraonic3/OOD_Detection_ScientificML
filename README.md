@@ -56,7 +56,7 @@ Install dependencies (example):
         "fix_input_to_time_step": null,
         "allowed_transitions": [0],
         "s": 128,
-        "config_arch": "/architectures_regression/config_cno_very_small_att.json",
+        "config_arch": "/configs/architectures//config_cno_very_small_att.json",
         "wandb_project_name": "your_project",
         "wandb_run_name": "_1"
     }
@@ -83,7 +83,7 @@ Install dependencies (example):
 - `fix_input_to_time_step`: keep `null` unless fixed inputs are required  
 - `allowed_transitions`: transitions allowed in all2all strategy (set to `[1,2,3,4,5,6,7]` for NS)  
 - `s`: resolution  
-- `config_arch`: path to architecture config file (examples in `architectures_regression`)  
+- `config_arch`: path to architecture config file (examples in `/configs/architectures`)  
 - `wandb_project_name`: project name for wandb logging  
 - `wandb_run_name`: run tag for wandb  
 
@@ -179,10 +179,10 @@ To obtain estimated likelihoods (or other diffusion-based certificates), you nee
 - `config_diffusion`: path to diffusion model config  
 - `tag_data`: tag for OOD testing data  
 - `N_samples`: number of test samples  
-- `baseline_avg_grad`: if using gradient-based baselines, set to `"time"`, `"space"`, `"time_space"`  
+- `baseline_avg_grad`: if using gradient-based baselines, set to `"time"`, `"space"`, `"time_space"`, `"grad_norm"`
 - `which_ckpt`: checkpoint to load (set `null` for default)  
 - `save_data`: whether to save generated samples  
-- `is_diff`: run diffusion model  
+- `is_diff`: whether to run diffusion inference, or only regression  
 - `is_ar`: whether to run autoregressive evaluation  
 - `regression_scheme`: AR scheme used during evaluation  
 - `dt`: autoregressive time step size  
@@ -193,10 +193,27 @@ To obtain estimated likelihoods (or other diffusion-based certificates), you nee
 
     python3 inference.py --config=/path_to_config_file/
 
+## 🔹 Classification
+
+For classification tasks, run the script:
+
+    python3 train_classification.py --config=/path_to_config_file/
+
+The config file for training is very similar to the one used for regression.  
+An important parameter is:
+
+- `ood_share`: fraction of the OOD class used during training.
+
+The inference for classification tasks is implemented in the Jupyter notebook:
+
+- `inference_classification.ipynb`
+  
 ## 🔹 Segmentation
 
-The segmentation training follows [this script](https://github.com/s0mnaths/Brain-Tumor-Segmentation/blob/master/notebooks/brain_tumor_segmentation.ipynb).  
-The backbone used for segmentation is the **CNO model**, with the final layer being a **binary segmentation head**.
+- The segmentation training follows [this script](https://github.com/s0mnaths/Brain-Tumor-Segmentation/blob/master/notebooks/brain_tumor_segmentation.ipynb).  
+- The backbone used for segmentation is the **CNO model**, with the final layer being a **binary segmentation head**.
+- The dataloader for the brain segmentation task is located in dataloader/dataloader.py.
+- The inference for segmentation is done with the predicted masks, in the same way as in regression inference.
 
 ## 🔹 1D Experiments
 
