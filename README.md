@@ -189,3 +189,11 @@ To obtain estimated likelihoods (or other diffusion-based certificates), you nee
 ### Run Inference
 
     python3 inference.py --config=/path_to_config_file/
+
+## 🔹 1D Experiments
+
+For running 1D experiments, please use the provided Jupyter notebooks:
+
+- `1d_notebooks/notebook_1d_diffusion.ipynb`  
+- `1d_notebooks/notebook_1d.ipynb`
+
