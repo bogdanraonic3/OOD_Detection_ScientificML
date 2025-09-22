@@ -1,16 +1,17 @@
-# PDE Models: Regression & Diffusion
+# Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI
 
-This repository contains implementations of regression and diffusion models for PDE learning.  
-The **GenCFD** and **CNO** models are adapted from the repositories:
+This repository contains implementations of the paper "Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI".  
 
-- [A](#)  
-- [B](#)  
+The **GenCFD** and **CNO** models used in this paper are adapted from the repositories:
+
+- [GenCFD](https://github.com/camlab-ethz/GenCFD)  
+- [CNO](https://github.com/camlab-ethz/poseidon)  
+
+Some dataloaders are adapted from [Poseidon](https://github.com/camlab-ethz/poseidon) implementation.
 
 While the code is also available in this project, please note that the **original implementations** can be found in their respective repositories.
 
 ⚠️ **Note**: The code has only been tested on **GPUs**. Running on CPUs may cause issues.
-
----
 
 ## 📦 Requirements
 - Python 3.8+
@@ -21,7 +22,13 @@ Install dependencies (example):
 
     pip install -r requirements.txt
 
----
+## 🗂️ Datasets
+
+- The Wave Equation datasets can be found on [🗃️ Zenodo](link)
+- The processed MERRA2 dataset that we sued in the paper can be found on [🗃️ Zenodo](link). The original datasets can be found on [🚀 NASA website](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/)
+- The Navier-Stokes datasets can be downloaded from [🤗 Poseidon Hugging Face](https://huggingface.co/collections/camlab-ethz/poseidon-664fa125729c53d8607e209a)
+- The Brats2020 dataset can be downlaoded from [🧠Brats2020](https://www.med.upenn.edu/cbica/brats2020/data.html)
+- The Classification dataasets are standard CIFAR10 and MNSIT.
 
 ## 🔹 Regression Model
 
@@ -42,14 +49,11 @@ Install dependencies (example):
         "batch_size": 32,
         "peak_lr": 0.0001,
         "end_lr": 0.00001,
-
         "which_data": "wave",
         "in_dim": 1,
         "out_dim": 1,
-
         "N_train": 128,
         "ood_share": 0.0,
-
         "is_time": true,
         "is_masked": null,
         "max_num_time_steps": 1,
@@ -57,7 +61,6 @@ Install dependencies (example):
         "fix_input_to_time_step": null,
         "allowed_transitions": [0],
         "s": 128,
-
         "config_arch": "/architectures_regression/config_cno_very_small_att.json",
         "wandb_project_name": "your_project",
         "wandb_run_name": "_1"
@@ -102,36 +105,30 @@ Install dependencies (example):
         "config": null,
         "device": "cuda",
         "tag": "tmp",
-
         "epochs": 200,
         "warmup_epochs": 0,
         "batch_size": 40,
         "peak_lr": 0.0002,
         "end_lr": 0.00001,
-
         "which_data": "ns_pwc",
         "is_time": true,
         "is_masked": null,
         "max_num_time_steps": 10,
         "time_step_size": 2,
         "fix_input_to_time_step": null,
-        "allowed_transitions": [1,2,3,4,5,6,7,8,9,10],
-
+        "allowed_transitions": [1,2,3,4,5,6,7],
         "which_type": "x&y",
         "sigma": 100.0,
         "in_dim": 2,
         "out_dim": 2,
-
         "N_train": 1000,
         "ood_share": 0.0,
         "s": 128,
-
         "is_log_uniform": false,
         "log_uniform_frac": 1.0,
         "is_exploding": true,
         "ema_param": 0.999,
         "skip": true,
-
         "config_arch": "/configs/architectures/config_unet_base.json",
         "wandb_project_name": "your_project",
         "wandb_run_name": "_1"
