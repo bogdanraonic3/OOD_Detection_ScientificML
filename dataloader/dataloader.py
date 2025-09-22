@@ -50,11 +50,11 @@ class CIFAR10_Dataset(Dataset):
         self.N_total = self.N_id + self.N_ood
 
         if which in ["train", "val"]:
-            self.data_id = np.load("/cluster/work/math/camlab-data/CIFAR10/cifar10_1-9_class_train_data.npy").astype("float32")
-            self.data_ood = np.load("/cluster/work/math/camlab-data/CIFAR10/cifar10_9th_class_train_data.npy").astype("float32")
+            self.data_id = np.load("/cpath_to_ID_classes_train").astype("float32")
+            self.data_ood = np.load("/path_to_OOD_class_train/").astype("float32")
         else:
-            self.data_id = np.load("/cluster/work/math/camlab-data/CIFAR10/cifar10_1-9_class_test_data.npy").astype("float32")
-            self.data_ood = np.load("/cluster/work/math/camlab-data/CIFAR10/cifar10_9th_class_test_data.npy").astype("float32")
+            self.data_id = np.load("/path_to_ID_classes_test/").astype("float32")
+            self.data_ood = np.load("/path_to_OOD_class_test/").astype("float32")
 
     def __len__(self):
         return self.N_total
@@ -141,10 +141,10 @@ class MNSIT_Dataset(Dataset):
 
         self.N_total = self.N_id + self.N_ood
 
-        self.data_id = np.load("/cluster/work/math/camlab-data/MNIST/mnist_id_data_0to9.npy").astype("float32")
-        self.label_id = np.load("/cluster/work/math/camlab-data/MNIST/mnist_id_label_0to9.npy").astype("float32")
-        self.data_ood = np.load("/cluster/work/math/camlab-data/MNIST/mnist_ood_data_9.npy").astype("float32")
-        self.label_ood = np.load("/cluster/work/math/camlab-data/MNIST/mnist_ood_label_9.npy").astype("float32")
+        self.data_id = np.load("/path_to_ID_classes_train/").astype("float32")
+        self.label_id = np.load("/path_to_OOD_classes_train/").astype("float32")
+        self.data_ood = np.load("/path_to_ID_classes_test/").astype("float32")
+        self.label_ood = np.load("/path_to_OOD_classes_test/").astype("float32")
         
         self.mean = 0.13
         self.std  = 0.31
@@ -267,13 +267,13 @@ class Wave2d_Dataset(Dataset):
             self.N = N_samples
         
         if is_ood is None:
-            self.file = "/cluster/work/math/braonic/data/2d_wave_diffusion/standing_wave_train_wide_2d.npy"
+            self.file = "/path_to_train_data/"
             if which == "test":
-                self.file = "/cluster/work/math/braonic/data/2d_wave_diffusion/standing_wave_test_wide_2d.npy"
+                self.file = "/path_to_standing_wave_test_ID_data/"
         else:
             
             tag = f"_{is_ood}"
-            self.file = f"/cluster/work/math/braonic/data/2d_wave_diffusion/standing_wave_OOD_3_WIDE_2d_detailed/data.npy"
+            self.file = f"/path_to_standing_test_OOD_data/"
         self.data = np.load(self.file).astype("float32")
 
         if which in ["train", "test"]:
@@ -302,9 +302,9 @@ class Wave2d_Dataset(Dataset):
         return time, data, label
 
     def load_details(self):
-        self.Ks = np.load("/cluster/work/math/camlab-data/wave_equation/2d_wave_diffusion/standing_wave_OOD_3_WIDE_2d_detailed/Ks.npy").astype("float32")
-        self.coeffs = np.load("/cluster/work/math/camlab-data/wave_equation/2d_wave_diffusion/standing_wave_OOD_3_WIDE_2d_detailed/coeffs.npy").astype("float32")
-        self.decays = np.load("/cluster/work/math/camlab-data/wave_equation/2d_wave_diffusion/standing_wave_OOD_3_WIDE_2d_detailed/decays.npy").astype("float32")
+        self.Ks = np.load("/path_to_standing_wave_OOD_3_WIDE_2d_detailed/Ks.npy").astype("float32")
+        self.coeffs = np.load("/path_to_standing_wave_OOD_3_WIDE_2d_detailed/coeffs.npy").astype("float32")
+        self.decays = np.load("/path_to_standing_wave_OOD_3_WIDE_2d_detailed/decays.npy").astype("float32")
 
         return self.Ks, self.coeffs, self.decays
 
@@ -335,28 +335,26 @@ class Merra2Dataset(Dataset):
                 self.dt = 1/6.
 
             self.N = N_samples
-            data_path = [f"/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_train_from01to04_{y}{postfix}.nc" for y in years]
+            data_path = [f"/path_to_humidity_train_from01to04_{y}{postfix}.nc" for y in years]
             
         elif self.which == "val":
             self.N = 700
             self.max_allowed_transition = 6
             self.dt = 1/6.
-            data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_val_from01to04_2022.nc"
+            data_path = "/path_to_humidity_val_from01to04_2022.nc"
             self.years = [2022]
         else:
             
-            data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_test_spatial_south_america_from01to04_2023_alltime.nc"
-            if is_ood:
-                data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_test_spatial_south_america_from06to09_2023_alltime.nc"
+            data_path = "/path_to_humidity_test_spatial_south_america_from01to04_2023_alltime.nc"
             if is_ood_spatial == 2:
                 #australia and oceania
-                data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_test_spatial_australia_from01to04_2023_alltime.nc"
+                data_path = "/path_to_humidity_test_spatial_australia_from01to04_2023_alltime.nc"
             elif is_ood_spatial == 3:
                 #africa
-                data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_test_spatial_africa_from01to04_2023_alltime.nc"
+                data_path = "/path_to_humidity_test_spatial_africa_from01to04_2023_alltime.nc"
             elif is_ood_spatial == 4:
                 #asia
-                data_path = "/cluster/work/math/camlab-data/experimental/external/nasa_humidity/processed/humidity_test_spatial_asia_from01to04_2023_alltime.nc"
+                data_path = "/path_to_humidity_test_spatial_asia_from01to04_2023_alltime.nc"
 
             self.dt = self.max_allowed_transition / 24.
             self.N = min(int(118/self.dt), N_samples)
