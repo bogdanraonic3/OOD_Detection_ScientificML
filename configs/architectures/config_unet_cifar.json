@@ -1,0 +1,7 @@
+{
+    "channels": [64, 128, 256],
+    "num_blocks": 6,
+    "noise_embed_dim": 256,
+    "proj_channels": 256,
+    "num_heads": 8
+}

@@ -1,0 +1,10 @@
+{
+    "latent_channels": 128, 
+    "patch_sizes": [4, 8, 16],
+    "dims": [192, 384, 768],      
+    "depth": 10,               
+    "heads": 12,               
+    "dim_head" :64,
+    "mlp_dim": 1024,
+    "emb_channels":128
+}

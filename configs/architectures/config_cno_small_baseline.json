@@ -1,0 +1,15 @@
+{
+    "s": 32,
+    "cno_layers": 4,
+    "cno_res": 2,
+    "cno_res_neck": 3,
+    "cno_channels": 32,
+    "cno_emb_dim": 64,
+    "cno_lift_dim": 64,
+    "att_layers": [0,0,0,0,0],
+    "att_blocks": 4,
+    "att_hidden_dim": 128, 
+    "att_heads": 4, 
+    "att_mlp_dim": 128, 
+    "att_dim_head": 128
+}

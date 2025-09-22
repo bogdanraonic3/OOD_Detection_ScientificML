@@ -1,0 +1,7 @@
+{
+    "n_layers": 4,
+    "width": 96,
+    "modes": 16,
+    "padding": 0,
+    "is_conv": false
+}

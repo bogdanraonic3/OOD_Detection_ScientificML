@@ -1,0 +1,29 @@
+{
+    "config_regression": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/REG_PL_WAVE_UNET_1000s_19M_3res5n3_100ep_1_regression",
+    "config_diffusion": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/DIFF_SKIP_2_ALLEPOCHS_PL_WAVE_SMALL_1k_diffusion_gencfd",
+    "which_data": "wave_ood",
+    "tag_data": "3",
+    "device": "cuda",
+    "N_samples": 123,
+    "ood_share": 0.0,
+    "batch_size": 8,
+
+    "baseline_avg_grad": "time",
+    "which_ckpt": null,
+
+    "save_data": true,
+    "is_diff": true,
+    "is_ar":true,
+
+    "is_time": true,
+    "is_masked": null,
+    "max_num_time_steps": 1,
+    "time_step_size": 1,
+    "fix_input_to_time_step": null,
+    "allowed_transitions": [1],
+    "regression_scheme": [1],
+    "dt": 1.0,
+
+    "inference_tag": "1",
+    "num_gen": 0
+}

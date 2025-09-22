@@ -1,0 +1,41 @@
+{
+    "config": null,
+    "device": "cuda",
+    "tag": "tmp",
+    "epochs": 1000,
+    "warmup_epochs": 0,
+    "batch_size": 24,
+    "peak_lr": 0.0001,
+    "end_lr": 1e-06,
+    "which_data": "wave",
+    "is_time": true,
+    "is_masked": null,
+    "max_num_time_steps": 1,
+    "time_step_size": 1,
+    "fix_input_to_time_step": null,
+    "allowed_transitions": [
+        1
+    ],
+    "which_type": "x&y",
+    "sigma": 100.0,
+    "in_dim": 1,
+    "out_dim": 1,
+    "N_train": 128,
+    "ood_share": 0.0,
+    "s": 128,
+    "unet_param": [
+        32,
+        64,
+        128,
+        256
+    ],
+    "is_log_uniform": false,
+    "log_uniform_frac": 1.0,
+    "is_exploding": true,
+    "ema_param": 0.999,
+    "wandb_run_name": "_pXandY",
+    "skip": true,
+    "wandb_project_name": "ood_project",
+    "config_arch": "/cluster/home/braonic/ood_generalization/configs/architectures/config_unet_small.json",
+    "workdir": "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/wave/DIFF_SKIP_2_ALLEPOCHS_PL_WAVE_SMALL_1k_diffusion_gencfd"
+}
