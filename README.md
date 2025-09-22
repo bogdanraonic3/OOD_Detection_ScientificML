@@ -129,7 +129,7 @@ Install dependencies (example):
     }
 
 **Variable explanations** (in addition to regression ones):  
-- `which_type`: `"joint"` (`x&y`) or `"only x"` (conditioning type)  
+- `which_type`: `x&y` (joint) or `"x"` (input only)  
 - `sigma`: max noise level for denoiser  
 - `is_log_uniform`: whether to use log-uniform scheme  
 - `log_uniform_frac`: scaling factor for log-uniform scheme  
