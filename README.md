@@ -22,14 +22,6 @@ Install dependencies (example):
 
     pip install -r requirements.txt
 
-## 🗂️ Datasets
-
-- The Wave Equation datasets can be found on [🗃️ Zenodo](link)
-- The processed MERRA2 dataset that we sued in the paper can be found on [🗃️ Zenodo](link). The original datasets can be found on [🚀 NASA website](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/)
-- The Navier-Stokes datasets can be downloaded from [🤗 Poseidon Hugging Face](https://huggingface.co/collections/camlab-ethz/poseidon-664fa125729c53d8607e209a)
-- The Brats2020 dataset can be downlaoded from [🧠Brats2020](https://www.med.upenn.edu/cbica/brats2020/data.html)
-- The Classification dataasets are standard CIFAR10 and MNSIT.
-
 ## 🔹 Regression Model
 
 ### Steps to Train
@@ -38,12 +30,12 @@ Install dependencies (example):
 3. **Create a config file**. Example:
 
     {
+   
         "config": null,
         "device": "cpu",
         "which_model": "cno",
         "tag": "tmp",
         "loss": 1,
-
         "epochs": 100,
         "warmup_epochs": 0,
         "batch_size": 32,
@@ -99,9 +91,11 @@ Install dependencies (example):
 ## 🔹 Diffusion Model
 
 ### Steps to Train
-1. **Create a config file**. Example:
+
+**Create a config file**. Example:
 
     {
+   
         "config": null,
         "device": "cuda",
         "tag": "tmp",
@@ -149,7 +143,7 @@ Install dependencies (example):
 
 ## 🔹 Inference
 
-To obtain estimated likelihoods (or diffusion-based certificates), you need a config file. Example:
+To obtain estimated likelihoods (or other diffusion-based certificates), you need a config file. Example:
 
     {
         "config_regression": "/path_to_regression_model/",
@@ -160,24 +154,19 @@ To obtain estimated likelihoods (or diffusion-based certificates), you need a co
         "N_samples": 123,
         "ood_share": 0.0,
         "batch_size": 8,
-
         "baseline_avg_grad": null,
         "which_ckpt": null,
-
         "save_data": false,
         "is_diff": true,
         "is_ar": true,
-
         "is_time": true,
         "is_masked": null,
         "max_num_time_steps": 7,
         "time_step_size": 2,
         "fix_input_to_time_step": null,
         "allowed_transitions": [7],
-
         "regression_scheme": [1,1,1,1,1,1,1],
         "dt": 0.1,
-
         "inference_tag": "1",
         "num_gen": 0
     }
