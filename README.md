@@ -190,6 +190,11 @@ To obtain estimated likelihoods (or other diffusion-based certificates), you nee
 
     python3 inference.py --config=/path_to_config_file/
 
+## 🔹 Segmentation
+
+The segmentation training follows [this script](https://github.com/s0mnaths/Brain-Tumor-Segmentation/blob/master/notebooks/brain_tumor_segmentation.ipynb).  
+The backbone used for segmentation is the **CNO model**, with the final layer being a **binary segmentation head**.
+
 ## 🔹 1D Experiments
 
 For running 1D experiments, please use the provided Jupyter notebooks:
