@@ -25,6 +25,20 @@ Install dependencies (example):
 
     pip install -r requirements.txt
 
+## 🗂️ Datasets
+
+- The **Wave Equation** datasets can be generated using the Jupyter notebook:  
+  `utils/generate_wave_data/generate_wave.ipynb`
+
+- The original **MERRA-2** datasets can be found on the [NASA website](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/)
+
+- The **Navier–Stokes** datasets can be downloaded from [Poseidon on Hugging Face](https://huggingface.co/collections/camlab-ethz/poseidon-664fa125729c53d8607e209a)
+
+- The **BraTS2020** dataset can be downloaded from [BraTS2020](https://www.med.upenn.edu/cbica/brats2020/data.html)
+
+- The **Classification** datasets are standard **CIFAR-10** and **MNIST**.
+
+
 ## 🔹 Regression Model
 
 ### Steps to Train
