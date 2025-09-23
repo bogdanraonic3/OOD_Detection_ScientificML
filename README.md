@@ -1,6 +1,5 @@
 # Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI
 
-
 ![image info](visualization/OOD_DETECTION_MAIN_FIGURE.png)
 
 This repository contains implementations of the paper "Towards a Certificate of Trust: Task-Aware OOD Detection for Scientific AI".  
