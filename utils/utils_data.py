@@ -481,19 +481,6 @@ def get_loader(which_data: str,
         dataset = [dataset1, dataset2, dataset3]
         dataset = torch.utils.data.ConcatDataset(dataset)
 
-    elif which_data == "eul_gauss":
-        dataset = EulerGaussTimeDataset(max_num_time_steps = max_num_time_steps, 
-                                    time_step_size = time_step_size,
-                                    fix_input_to_time_step = fix_input_to_time_step,
-                                    which = which_type,
-                                    resolution = 128,
-                                    in_dist = True,
-                                    num_trajectories = N_samples,
-                                    data_path = "",
-                                    time_input = True,
-                                    masked_input = masked_input,
-                                    allowed_transitions = allowed_transitions)
-
     elif which_data == "baseline_class":
         dataset = BinaryClassificationBaseline(folder = baseline_folder,
                                                 which = which_type,
