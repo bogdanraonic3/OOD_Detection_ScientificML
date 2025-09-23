@@ -37,8 +37,19 @@ Install dependencies (example):
 
 - The **Classification** datasets are standard **CIFAR-10** and **MNIST**.
 
+## 🔹 1D Toy Model
 
-## 🔹 Regression Model
+The 1D toy model can be run in the notebook:
+
+- `1d_notebooks/notebook_1d_diffusion.ipynb`
+
+It consists of:
+- 1D training of a regression model  
+- 1D training of a diffusion model  
+- ODE-based and SDE-based sampling  
+- Likelihood estimation
+
+## 🔹 2D Regression Models
 
 ### Steps to Train
 1. **Set working directory** in `train_regression_pl.py` (default: `trained_models`).  
@@ -104,7 +115,7 @@ Install dependencies (example):
 
     python3 train_regression_pl.py --config=/path_to_config_file/
 
-## 🔹 Diffusion Model
+## 🔹 2D Diffusion Models
 
 ### Steps to Train
 
@@ -157,7 +168,7 @@ Install dependencies (example):
 
     python3 train_diffusion_pl.py --config=/path_to_config_file/
 
-## 🔹 Inference
+## 🔹 2D Inference
 
 To obtain estimated likelihoods (or other diffusion-based certificates), you need a config file. Example:
 
@@ -228,10 +239,9 @@ The inference for classification tasks is implemented in the Jupyter notebook:
 - The dataloader for the brain segmentation task is located in dataloader/dataloader.py.
 - The inference for segmentation is done with the predicted masks, in the same way as in regression inference.
 
-## 🔹 1D Experiments
+## 🔹 Other 1D Experiments
 
-For running 1D experiments, please use the provided Jupyter notebooks:
+For running other 1D experiments, please use the provided Jupyter notebooks:
 
-- `1d_notebooks/notebook_1d_diffusion.ipynb`  
 - `1d_notebooks/notebook_1d.ipynb`
 
