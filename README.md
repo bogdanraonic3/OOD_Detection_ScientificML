@@ -231,6 +231,8 @@ An important parameter is:
 The inference for classification tasks is implemented in the Jupyter notebook:
 
 - `inference_classification.ipynb`
+
+Very helpful notebooks that we used in our research can be found [here](https://colab.research.google.com/github/yang-song/score_sde_pytorch/blob/main/Score_SDE_demo_PyTorch.ipynb) and [here](https://github.com/yang-song/score_sde_pytorch/blob/main/Score_SDE_demo_PyTorch.ipynb). 
   
 ## 🔹 Segmentation
 
