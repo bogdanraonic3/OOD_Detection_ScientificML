@@ -488,10 +488,10 @@ class BrainDataset(Dataset):
         mask = np.expand_dims(mask, axis=0)  # (1, H, W)
         mask = torch.from_numpy(mask).type(torch.float32)
 
-        image_noise = 0.01*torch.randn(image.shape, device = image.device).type(torch.float32)
+        image_noise = 0.025*torch.randn(image.shape, device = image.device).type(torch.float32)
         image[image<0.01] = image_noise[image<0.01]
 
-        mask_noise = 0.01*torch.randn(mask.shape, device = mask.device).type(torch.float32)
+        mask_noise = 0.025*torch.randn(mask.shape, device = mask.device).type(torch.float32)
         mask[mask<0.01] = mask_noise[mask<0.01]
 
         return image, mask
