@@ -25,9 +25,6 @@ from regression.loss_fn import relative_lp_loss_fn
 
 import wandb
 
-os.environ["WANDB__SERVICE_WAIT"] = "300"
-os.environ["WANDB_DIR"] = "/cluster/work/math/braonic/TrainedModels/OOD_Generalization/ood_wandb_logs"
-
 if __name__ == "__main__":
 
   parser = argparse.ArgumentParser(description="load parameters for training")
@@ -44,7 +41,7 @@ if __name__ == "__main__":
   tag = f"{config.tag}_{which_exp}_{config.N_train}_{config.only_x}"
   
 
-  workdir = f"/cluster/work/math/braonic/TrainedModels/OOD_Generalization/{which_data}/{tag}_regression"
+  workdir = f"/path_to_workdir/"
   if not os.path.exists(workdir):
     os.makedirs(workdir)
   save_data(vars(config), f"{workdir}/param_regression_{tag}.json")
@@ -68,12 +65,6 @@ if __name__ == "__main__":
   model.model.print_size()
 
   model = model.to("cuda")
-  '''
-  run = wandb.init(entity="bogdanraonic", 
-                  project=config.wandb_project_name, 
-                  name=tag + config.wandb_run_name, 
-                  config=config)
-  '''
 
   n_epochs = config.epochs
 
