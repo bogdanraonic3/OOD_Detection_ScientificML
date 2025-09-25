@@ -26,7 +26,7 @@ Install dependencies (example):
 
 ## 🗂️ Datasets
 
-- The **Wave Equation** datasets can be generated using the Jupyter notebook:  
+- The **Wave Equation** datasets can be downloaded from [this link](https://zenodo.org/records/17201388?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjkyYjRiOTQwLTliNTUtNGE3YS05MjU1LWRjMTljMzA0NmU3MSIsImRhdGEiOnt9LCJyYW5kb20iOiIyZTg1MDUxMDYwYTU3NWViYzQzZjlmM2VkMWY4MjdmNSJ9.y12swFR_R2DBj5Ezdp1TsG5-YpO1kXOlkLI76twM0lnKZ2IrCBws5B_R3CUfL_b9dDDN7QGkEAF1po6KaoPbMg), or can be generated using the Jupyter notebook:  
   `utils/generate_wave_data/generate_wave.ipynb`
 
 - The original **MERRA-2** datasets can be found on the [NASA website](https://gmao.gsfc.nasa.gov/gmao-products/merra-2/data-access_merra-2/)
