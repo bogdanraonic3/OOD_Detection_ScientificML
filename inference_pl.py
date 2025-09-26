@@ -386,9 +386,10 @@ if __name__ == "__main__":
     print(np.median(errors_lp_rel), "MEDIAN")
     
     inference_tag = config.inference_tag
-    
-    tag_grad_baselines = ["time", "space", "time_space", "grad_norm"]
-    data = [likelihoods_time, likelihoods_space, likelihoods_time_space, likelihoods_grad_norm]
+
+    if baseline_avg_grad:
+        tag_grad_baselines = ["time", "space", "time_space", "grad_norm"]
+        data = [likelihoods_time, likelihoods_space, likelihoods_time_space, likelihoods_grad_norm]
 
     if baseline_avg_grad:
         for i,tag_grad_baseline in enumerate(tag_grad_baselines):
